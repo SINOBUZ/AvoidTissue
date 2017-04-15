@@ -76,7 +76,8 @@
     <room>rooms\room_start</room>
     <room>rooms\room_play</room>
     <room>rooms\room_plg</room>
-    <room>rooms\room2</room>
+    <room>rooms\room_re</room>
+    <room>rooms\room_makers</room>
     <rooms name="ByteTricks">
       <room>rooms\multi_touch_demo</room>
     </rooms>
