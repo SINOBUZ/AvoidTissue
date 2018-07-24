@@ -11,6 +11,27 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>random_set_seed(randomize())
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>611</id>
         <kind>6</kind>
         <userelative>-1</userelative>
@@ -97,7 +118,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.score</string>
+            <string>global.gamescore</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -810,30 +831,6 @@
         <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
-        <relative>-1</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>global.score</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>1/10</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -843,7 +840,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>floor(global.score)</string>
+            <string>floor(global.gamescore)</string>
           </argument>
         </arguments>
       </action>
@@ -895,6 +892,39 @@
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if global.curstage=1
+global.gamescore=global.gamescore+0.1
+if global.curstage=2
+global.gamescore=global.gamescore+0.2
+if global.curstage=3
+global.gamescore=global.gamescore+0.3
+if global.curstage=4
+global.gamescore=global.gamescore+0.4
+if global.curstage=5
+global.gamescore=global.gamescore+0.5
+if global.curstage=6
+global.gamescore=global.gamescore+0.6
+
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
@@ -917,14 +947,30 @@
 draw_set_color(c_black)
 draw_set_halign(fa_center)
 draw_set_font(font0)
-draw_text(600,200,("Score : " +string(global.lolscore)))
+draw_text(700,80,("Score : " +string(global.lolscore)))
 if global.curstage = 6
 {
-draw_text(600,100,("Stage : Eternal"))
+draw_text(700,50,("Stage : Eternal"))
 }
 else
 {
-draw_text(600,100,("Stage : " +string(global.curstage)))
+draw_text(700,50,("Stage : " +string(global.curstage)))
+}
+
+if instance_exists(obj_matlix)
+{
+if obj_shield.shieldcount = -1
+{
+draw_text(obj_matlix.x+100, obj_matlix.y-10, ("Shield : " +string(floor(100*obj_matlix.alpha))))
+}
+}
+
+if instance_exists(obj_weapon)
+{
+if obj_attack.weaponexist = 1
+{
+draw_text(obj_weapon.x+50, obj_weapon.y+50, (string(obj_weapon.ammo)))
+}
 }
 </string>
           </argument>

@@ -3,8 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles"/>
   <NewExtensions>
     <extension index="0">extensions\Multi Touch Support</extension>
+    <extension index="1">extensions\Transition System</extension>
   </NewExtensions>
   <sounds name="sound">
     <sound>sound\mainmenu</sound>
@@ -13,10 +15,16 @@
     <sound>sound\yesshield</sound>
     <sound>sound\getshield</sound>
     <sound>sound\shieldcrash</sound>
+    <sound>sound\hitsound_poo</sound>
+    <sound>sound\hitsound_shield</sound>
+    <sound>sound\attack_fly</sound>
+    <sound>sound\punch</sound>
+    <sound>sound\clicksound</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sprite4</sprite>
     <sprite>sprites\poo</sprite>
+    <sprite>sprites\spr_weapon</sprite>
     <sprite>sprites\paper_towel</sprite>
     <sprite>sprites\tissue</sprite>
     <sprite>sprites\sprite3</sprite>
@@ -26,21 +34,30 @@
     <sprite>sprites\sprite9</sprite>
     <sprite>sprites\spr_matlix</sprite>
     <sprite>sprites\spr_matlix2</sprite>
+    <sprite>sprites\spr_weapon2</sprite>
     <sprite>sprites\spr_shieldico</sprite>
     <sprites name="ByteTricks">
       <sprite>sprites\spr_uses_script</sprite>
       <sprite>sprites\spr_uses_event</sprite>
       <sprite>sprites\spr_mode_switch</sprite>
     </sprites>
+    <sprite>sprites\spr_attackico</sprite>
+    <sprite>sprites\spr_fly</sprite>
+    <sprite>sprites\spr_gamelogo</sprite>
+    <sprite>sprites\maker</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
     <background>background\background1</background>
+    <background>background\back_test1</background>
+    <background>background\back_test2</background>
+    <background>background\background4</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="ByteTricks">
       <script>scripts\multi_touch_click.gml</script>
+      <script>scripts\multi_touch_click_repeat.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -51,16 +68,22 @@
     <object>objects\obj_left</object>
     <object>objects\obj_right</object>
     <object>objects\obj_shield</object>
+    <object>objects\obj_attack</object>
     <object>objects\obj_Start</object>
     <object>objects\obj_system</object>
     <object>objects\obj_tissue</object>
+    <object>objects\obj_tissue_noattack</object>
     <object>objects\obj_paper</object>
+    <object>objects\obj_paper_noattack</object>
     <object>objects\object7</object>
     <object>objects\object8</object>
     <object>objects\object9</object>
     <object>objects\obj_musicsys</object>
     <object>objects\obj_matlix</object>
     <object>objects\obj_matlix2</object>
+    <object>objects\obj_weapon</object>
+    <object>objects\obj_effect_main</object>
+    <object>objects\obj_weapon2</object>
     <objects name="ByteTricks">
       <object>objects\obj_button_parent</object>
       <object>objects\obj_uses_script</object>
@@ -68,6 +91,8 @@
       <object>objects\obj_mode_switch</object>
       <object>objects\READ_ME</object>
     </objects>
+    <object>objects\obj_attackfly</object>
+    <object>objects\obj_maker</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\timeline_item</timeline>
@@ -75,12 +100,9 @@
   <rooms name="rooms">
     <room>rooms\room_start</room>
     <room>rooms\room_play</room>
+    <room>rooms\room_makers</room>
     <room>rooms\room_plg</room>
     <room>rooms\room_re</room>
-    <room>rooms\room_makers</room>
-    <rooms name="ByteTricks">
-      <room>rooms\multi_touch_demo</room>
-    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
